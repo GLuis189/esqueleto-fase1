@@ -60,6 +60,7 @@ class SList2(SList):
             current.next=aux_end
         
         else:
+            # if start = 0 cambiar l.kead despues de conservar end
             current=self._head
             for _ in range(end):
                 current=current.next
