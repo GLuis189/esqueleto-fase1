@@ -1,6 +1,8 @@
 from slist import SList
 from slist import SNode
 import sys
+# Raúl Aguilar Arroyo, 100472050
+# Luis Gómez-Manzanilla Nieto, 100472006
 
 class SList2(SList):
 
