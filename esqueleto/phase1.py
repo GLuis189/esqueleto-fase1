@@ -44,15 +44,14 @@ class SList2(SList):
                 
 
     def insertList(self,inputList:SList,start,end):
+        ''' en el peor de los casos tiene complejidad de T(n)=3n+5 es decir O(n)'''
         if start<0 or start >len(self) or end<start or end>=len(self): # excepciones
             return 
-        
-        else:
 
+        else: # ejecucion normal
             current=self._head
             end_iters=1
             start_iters=0
-
             for i in range(end): # navego hasta end
                 current=current.next
                 end_iters=i
@@ -79,7 +78,34 @@ class SList2(SList):
             self._size= self._size+inputList._size-(end_iters-start_iters+2)
 
     def reverseK(self,k):
-        pass
+        auxL=SList()
+        current=self._head
+        current2=self._head
+        auxPointer=None
+        i=0
+        if k<=1:
+            return
+            
+        while current:
+            for _ in range(k): 
+                if current: # excepcion para cuando estas en el ultimo elemento no se salga
+                    auxL.addFirst(current.elem)
+                    current=current.next
+            
+            auxPointer=auxL._head
+            for _ in range(k):
+                if current2 and auxPointer: # excepcion para cuando estas en el ultimo elemento no se salga
+                    current2.elem=auxPointer.elem
+                    current2=current2.next
+                    auxPointer=auxPointer.next
+            
+            auxL=SList()
+
+            
+
+
+
+
 
 
     def maximumPair(self):

@@ -128,7 +128,7 @@ class Test(unittest.TestCase):
         self.l2.insertMiddle(e)
         self.data2.insert(_index, e)
         self.assertEqual(str(self.l2), str(self.data2))
-        print("\tinsertMiddle3 in an non-empty odd list, OK!!!")'''
+        print("\tinsertMiddle3 in an non-empty odd list, OK!!!")
         
     def testInsertList1(self):
         print("\n\tinsertList1 start<0")
@@ -220,7 +220,7 @@ class Test(unittest.TestCase):
         print("\tinsertList7 start=1, end=len(l)-2, ok")
     
     
-    '''def testMaximumPair1(self):
+    def testMaximumPair1(self):
         print("\n\tmaximumPair1, list empty")
         inputList=SList2()
         result=inputList.maximumPair()
@@ -311,7 +311,7 @@ class Test(unittest.TestCase):
         result=inputList.maximumPair()
         expected=19
         self.assertEqual(expected,result) 
-        print("\tmaximumPair8, list size=5, middle<max, ok!!!")
+        print("\tmaximumPair8, list size=5, middle<max, ok!!!")'''
 
         
     def testreverseK1(self):
@@ -387,7 +387,7 @@ class Test(unittest.TestCase):
         expected=[1,8,20,-1,2,10]
         self.assertEqual(str(expected),str(inputList))
         print("\treverseK7, k=len+3, ok!!!")
-'''
+
         
 if __name__ == "__main__":
     unittest.main()
