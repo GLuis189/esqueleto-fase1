@@ -82,7 +82,6 @@ class SList2(SList):
         current=self._head
         current2=self._head
         auxPointer=None
-        i=0
         if k<=1:
             return
             
