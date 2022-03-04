@@ -15,32 +15,33 @@ class SList2(SList):
 
         #0<n<len(self)
         else:
-            if n>len(self):
+            if n>len(self): # Si se supera el size de la lista se suman todos los elementos de la lista
                 n=len(self)
-            current=self._head
+            current=self._head # varaible de movimiento
             total=0
-            for _ in range(len(self)-n):
+            for _ in range(len(self)-n): # posicionamiento en la lista dejando los n últimos elementos 
                     current=current.next 
-            while current:   
-                total+=current.elem
+            while current: # suman los n elementos hasta el final de la lista
+                total+=current.elem 
                 current=current.next
             return total
     
     #method for inserting a new node in the middle
     def insertMiddle(self, elem):
+        # caso lista vacía
         if len(self)==0:
-            self.addFirst(elem)
+            self.addFirst(elem) 
         else:
-            node = SNode(elem)
-            current=self._head
-            if len(self)%2==0:
-                for _ in range(len(self)//2-1):
+            node = SNode(elem) # cear el nodo con el elemento a introducir
+            current=self._head # variable de movimiento
+            if len(self)%2==0: # caso par
+                for _ in range(len(self)//2-1): # posicionamiento antes de la mitad
                     current=current.next
-            else:
-                for _ in range((len(self)//2)):
+            else: # caso impar
+                for _ in range((len(self)//2)): # posicionamiento antes de la mitad
                     current=current.next
-            node.next=current.next
-            current.next=node
+            node.next=current.next # vinculamos el nodo a la lista 
+            current.next=node # vinculamos la lista al nodo
         self._size+=1
                 
 
@@ -105,33 +106,33 @@ class SList2(SList):
 
 
     def maximumPair(self):
-        '''T(n)=2n+21 O(n)'''
+        '''T(n)=2n+19 O(n)'''
         aux=SList2()
         current=self._head
         if self._size==0:
             return
-        if self._size==1:
-            return self._head.elem
+        
         for _ in range(len(self)):  # creamos una lista invertida
             aux.addFirst(current.elem)
             current=current.next
         
-        current_aux=aux._head
+        current_aux=aux._head # reinicio de los contadores
         current=self._head
         maxi=0
         alfa=0
-        if len(self)%2!=0:
+        if len(self)%2!=0: # establece que si la lista es impar se debe hacer una iteracion mas
             alfa=1
-        for i in range((len(self)//2+alfa)):
+        for i in range((len(self)//2+alfa)): # recorremos la mitad de la lista redondeado hacia abajo por lo que si es
+                                             # impar debemos añadir una iteracion para el ultimo elemento       
             par1=current.elem
             par2=current_aux.elem
-            if not i == len(self)//2:
+            if not i == len(self)//2: # si no estamos en la ultima iteracion sumamos pares
                 value=par1+par2
-            else:
+            else:   # cuando lo anterior no se cumple significa que la lista es impar por lo que no hay que sumar el par ya que solo se cuenta una vez
                 value=par1
-            if value>maxi:
+            if value>maxi: # modificamos el valor maximo
                     maxi=value
             
-            current=current.next
-            current_aux=current_aux.next
+            current=current.next # continua la iteracion
+            current_aux=current_aux.next # continua la iteracion
         return maxi
