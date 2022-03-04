@@ -165,7 +165,7 @@ class Test(unittest.TestCase):
         self.l3.insertList(inputList,0,0)
         expected=[10,10,10,1,2,3,4]
         self.assertEqual(str(self.l3), str(expected))
-        print("\tinsertList4 start>end), ok!!!")
+        print("\tinsertList4 start=0,end=0, ok!!!")
     
     def testInsertList5(self):
         print("\n\tinsertList5 start=0,end=len(l)-1")
