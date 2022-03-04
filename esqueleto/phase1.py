@@ -1,4 +1,3 @@
-import re
 from slist import SList
 from slist import SNode
 import sys
