@@ -78,6 +78,7 @@ class SList2(SList):
             self._size= self._size+inputList._size-(end_iters-start_iters+2)
 
     def reverseK(self,k):
+        '''tiene una complejidad de T(n)=2n+13 O(n)=n'''
         auxL=SList() # la lista dondese invierten los elementos
         current=self._head # seran los elementos que se invierten
         current2=self._head # es la posicion donde se asignan los elementos ya invertidos
