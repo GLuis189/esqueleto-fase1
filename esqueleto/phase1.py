@@ -78,27 +78,28 @@ class SList2(SList):
             self._size= self._size+inputList._size-(end_iters-start_iters+2)
 
     def reverseK(self,k):
-        auxL=SList()
-        current=self._head
-        current2=self._head
-        auxPointer=None
-        if k<=1:
+        auxL=SList() # la lista dondese invierten los elementos
+        current=self._head # seran los elementos que se invierten
+        current2=self._head # es la posicion donde se asignan los elementos ya invertidos
+        auxPointer=None # sera el puntero que recorre la lista auxiliar para reasignar los elementos ya reordenados
+        if k<=1: # no modifica la lista 
             return
             
-        while current:
+        while current: # ejecucion normal
             for _ in range(k): 
-                if current: # excepcion para cuando estas en el ultimo elemento no se salga
-                    auxL.addFirst(current.elem)
-                    current=current.next
+                if current: # excepcion para cuando estas en el ultimo nodo no se salga, -len(self) % k != 0-
+                    auxL.addFirst(current.elem) # añade los elementos a la lista auxilar de forma que se van invirtiendo
+                    current=current.next 
             
-            auxPointer=auxL._head
+            auxPointer=auxL._head #reinicia el puntero de la lista de k elementos invertida
             for _ in range(k):
-                if current2 and auxPointer: # excepcion para cuando estas en el ultimo elemento no se salga
-                    current2.elem=auxPointer.elem
-                    current2=current2.next
-                    auxPointer=auxPointer.next
+                if current2 and auxPointer: # excepcion para cuando estas en el ultimo nodo no se salga
+                    current2.elem=auxPointer.elem   # reemplaza el elemento del nodo que apunta c2 por el elemento 
+                                                    # que apunta el puntero de la lista invertida
+                    current2=current2.next # avancamos en la lista principal
+                    auxPointer=auxPointer.next # avancamos en la lista invertida
             
-            auxL=SList()
+            auxL=SList() # reiniciamos la lista invertida
 
             
 
