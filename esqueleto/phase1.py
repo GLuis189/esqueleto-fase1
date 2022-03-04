@@ -1,3 +1,4 @@
+import re
 from slist import SList
 from slist import SNode
 import sys
@@ -41,6 +42,7 @@ class SList2(SList):
                     current=current.next
             node.next=current.next
             current.next=node
+        self._size+=1
                 
 
     def insertList(self,inputList:SList,start,end):
@@ -78,7 +80,7 @@ class SList2(SList):
             self._size= self._size+inputList._size-(end_iters-start_iters+2)
 
     def reverseK(self,k):
-        '''tiene una complejidad de T(n)=2n+13 O(n)=n'''
+        '''tiene una complejidad de T(n)=2n+13 O(n)'''
         auxL=SList() # la lista dondese invierten los elementos
         current=self._head # seran los elementos que se invierten
         current2=self._head # es la posicion donde se asignan los elementos ya invertidos
@@ -102,14 +104,35 @@ class SList2(SList):
             
             auxL=SList() # reiniciamos la lista invertida
 
-            
-
-
-
-
-
 
     def maximumPair(self):
-        pass
-
-
+        '''T(n)=2n+21 O(n)'''
+        aux=SList2()
+        current=self._head
+        if self._size==0:
+            return
+        if self._size==1:
+            return self._head.elem
+        for _ in range(len(self)):  # creamos una lista invertida
+            aux.addFirst(current.elem)
+            current=current.next
+        
+        current_aux=aux._head
+        current=self._head
+        maxi=0
+        alfa=0
+        if len(self)%2!=0:
+            alfa=1
+        for i in range((len(self)//2+alfa)):
+            par1=current.elem
+            par2=current_aux.elem
+            if not i == len(self)//2:
+                value=par1+par2
+            else:
+                value=par1
+            if value>maxi:
+                    maxi=value
+            
+            current=current.next
+            current_aux=current_aux.next
+        return maxi

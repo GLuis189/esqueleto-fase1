@@ -37,7 +37,7 @@ class Test(unittest.TestCase):
         #print(self.l)
         
 
-    '''def testsumLastN1_Nnegative(self):
+    def testsumLastN1_Nnegative(self):
          print("\n\ttestsumLastN1 n negative")
          expected = None
          result = self.l.sumLastN(-3)
@@ -311,7 +311,7 @@ class Test(unittest.TestCase):
         result=inputList.maximumPair()
         expected=19
         self.assertEqual(expected,result) 
-        print("\tmaximumPair8, list size=5, middle<max, ok!!!")'''
+        print("\tmaximumPair8, list size=5, middle<max, ok!!!")
 
         
     def testreverseK1(self):
